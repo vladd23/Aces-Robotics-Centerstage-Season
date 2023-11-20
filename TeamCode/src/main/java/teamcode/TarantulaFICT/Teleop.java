@@ -1,8 +1,10 @@
 package teamcode.TarantulaFICT;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+@Disabled
 @TeleOp(name = "Control Tarantula", group = "Control")
 
 public class Teleop extends LinearOpMode {
