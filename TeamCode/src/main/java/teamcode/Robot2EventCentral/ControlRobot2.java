@@ -1,5 +1,6 @@
 package teamcode.Robot2EventCentral;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -7,6 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import teamcode.TarantulaFICT.Hardware;
 
+@Disabled
 @TeleOp(name = "Control robot 2")
 public class ControlRobot2 extends LinearOpMode {
     DcMotorEx motorStanga = null, motorDreapta = null;

@@ -2,10 +2,11 @@ package teamcode.RobotTimm;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
+@Disabled
 @TeleOp(name = "Control")
 public class Control extends LinearOpMode {
     Hardware robot;

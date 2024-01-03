@@ -1,36 +1,36 @@
-package teamcode.TarantulaFICT;
+package teamcode.RobotDemoPunk;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@Disabled
-@TeleOp(name = "Control Tarantula", group = "Control")
+@TeleOp(name = "Control")
+public class Control extends LinearOpMode {
 
-public class Teleop extends LinearOpMode {
-    Hardware robot=new Hardware();
-
+    Hardware robot;
+    double sniperSpeed=0.6;
     double speed, direction, right, left;
-
     @Override
-    public void runOpMode() throws InterruptedException {
-        double sniperSpeed = 0.4;
-        robot.innit(hardwareMap);
+    public void runOpMode() throws InterruptedException{
+        robot = new Hardware(hardwareMap);
+
         waitForStart();
-        while (opModeIsActive()) {
+        while(opModeIsActive()) {
             if(gamepad2.a) {
                 robot.gripper.setPosition(0);
             } else {
                 robot.gripper.setPosition(0.5);
             }
 
-            if(gamepad2.right_bumper) {
+            if(gamepad2.right_bumper){
                 robot.pivot.setPosition(0);
             }
             if(gamepad2.left_bumper) {
-                robot.pivot.setPosition(0.3);
+                robot.pivot.setPosition(0.5);
             }
 
+            if(gamepad2.y){
+                robot.avion.setPosition(-0.5);
+            }
             if(gamepad2.dpad_up) {
                 robot.glisiera.setPower(-0.4);
             } else if(gamepad2.dpad_down) {
@@ -38,8 +38,7 @@ public class Teleop extends LinearOpMode {
             } else {
                 robot.glisiera.setPower(0);
             }
-
-            speed = gamepad1.right_trigger - gamepad1.left_trigger;
+            speed = -gamepad1.right_trigger + gamepad1.left_trigger;
             direction = gamepad1.left_stick_x;
 
             right = speed - direction;
@@ -55,16 +54,18 @@ public class Teleop extends LinearOpMode {
                 left = -1;
 
             if (gamepad1.right_stick_x != 0) {
-                robot.left_back.setPower(gamepad1.right_stick_x * sniperSpeed);
-                robot.left_front.setPower(-gamepad1.right_stick_x * sniperSpeed);
-                robot.right_back.setPower(-gamepad1.right_stick_x * sniperSpeed);
-                robot.right_front.setPower(gamepad1.right_stick_x * sniperSpeed);
+                robot.stspate.setPower(gamepad1.right_stick_x * sniperSpeed);
+                robot.stfata.setPower(-gamepad1.right_stick_x * sniperSpeed);
+                robot.drspate.setPower(-gamepad1.right_stick_x * sniperSpeed);
+                robot.drfata.setPower(gamepad1.right_stick_x * sniperSpeed);
             } else {
-                robot.left_back.setPower(left * sniperSpeed);
-                robot.left_front.setPower(left * sniperSpeed);
-                robot.right_back.setPower(right * sniperSpeed);
-                robot.right_front.setPower(right * sniperSpeed);
+                robot.stspate.setPower(left * sniperSpeed);
+                robot.stfata.setPower(left * sniperSpeed);
+                robot.drspate.setPower(right * sniperSpeed);
+                robot.drfata.setPower(right * sniperSpeed);
             }
         }
     }
+
+
 }
