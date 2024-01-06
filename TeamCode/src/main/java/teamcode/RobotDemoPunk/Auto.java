@@ -9,16 +9,20 @@ public class Auto extends LinearOpMode{
     @Override
     public void runOpMode() throws InterruptedException{
         robot = new Hardware(hardwareMap);
+        robot.pivot.setPosition(0.6);
+        robot.glisiera.setPower(0);
 
         waitForStart();
+
+
         robot.stfata.setPower(0.3);
         robot.stspate.setPower(0.3);
-        robot.drfata.setPower(-0.3);
-        robot.drspate.setPower(-0.3);
-        robot.glisiera.setPower(0);
+        robot.drfata.setPower(0.3);
+        robot.drspate.setPower(0.3);
+
         robot.gripper.setPosition(0);
-        robot.avion.setPosition(0);
-        robot.pivot.setPosition(0);
+//        robot.avion.setPosition(0);
+
 
 
         sleep(2500);

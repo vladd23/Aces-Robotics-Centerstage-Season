@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 @Disabled
-@TeleOp(name = "Control")
+//@TeleOp(name = "Control")
 public class Control extends LinearOpMode {
     Hardware robot;
     double sniperSpeed = 0.6;

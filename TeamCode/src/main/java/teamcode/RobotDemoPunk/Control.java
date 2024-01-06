@@ -12,7 +12,8 @@ public class Control extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException{
         robot = new Hardware(hardwareMap);
-
+        robot.pivot.setPosition(0.5);
+        robot.avion.setPosition(0);
         waitForStart();
         while(opModeIsActive()) {
             if(gamepad2.a) {
@@ -22,27 +23,27 @@ public class Control extends LinearOpMode {
             }
 
             if(gamepad2.right_bumper){
-                robot.pivot.setPosition(0);
+                robot.pivot.setPosition(0.2);
             }
             if(gamepad2.left_bumper) {
                 robot.pivot.setPosition(0.5);
             }
 
             if(gamepad2.y){
-                robot.avion.setPosition(-0.5);
+                robot.avion.setPosition(0.3);
             }
             if(gamepad2.dpad_up) {
-                robot.glisiera.setPower(-0.4);
-            } else if(gamepad2.dpad_down) {
                 robot.glisiera.setPower(0.4);
+            } else if(gamepad2.dpad_down) {
+                robot.glisiera.setPower(-0.4);
             } else {
                 robot.glisiera.setPower(0);
             }
             speed = -gamepad1.right_trigger + gamepad1.left_trigger;
             direction = gamepad1.left_stick_x;
 
-            right = speed - direction;
-            left = speed + direction;
+            right = speed + direction;
+            left = speed - direction;
 
             if (right > 1)
                 right = 1;

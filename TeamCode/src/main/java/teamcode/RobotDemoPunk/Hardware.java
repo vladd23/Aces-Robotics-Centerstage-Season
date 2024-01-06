@@ -32,8 +32,8 @@ public class Hardware {
         drfata.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         drspate.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        stfata.setDirection(DcMotorSimple.Direction.REVERSE);
-        stspate.setDirection(DcMotorSimple.Direction.REVERSE);
+        drfata.setDirection(DcMotorSimple.Direction.REVERSE);
+        drspate.setDirection(DcMotorSimple.Direction.REVERSE);
 
         avion.setPosition(0);
         pivot.setPosition(0);
